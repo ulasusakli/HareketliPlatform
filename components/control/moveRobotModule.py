@@ -1,6 +1,7 @@
-from motorModule import RobotController
 import RPi.GPIO as GPIO
 import time
+from motorModule import RobotController
+
 
 def moveRobot(position):
     robot = RobotController()
@@ -96,5 +97,7 @@ def moveRobot(position):
         robot.move_motor(3, 0)
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
     
+    else:
+        print("Robot Hareketi Gerçekleştirilemedi...")
 
     robot.cleanup()

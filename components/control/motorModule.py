@@ -75,6 +75,7 @@ class RobotController:
 
 # Örnek Kullanım:
 # robot = RobotController()
-# robot.move_motor(1, 90)  # Motor 1'i 90 derece döndür
-# robot.move_motor(2, 180)  # Motor 2'yi 180 derece döndür
+# robot.move_motor(1, 90)  # Motor 1'i saat yönünde 90 derece döndür
+# robot.move_motor(2, 180)  # Motor 2'yi saat yönünde 180 derece döndür
+# robot.move_motor_ccw(1, 60)  # Motor 1'i saat yönünün tersine 60 derece döndür
 # robot.cleanup()
