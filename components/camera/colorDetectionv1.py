@@ -1,13 +1,6 @@
-"""
-** GÖRÜNTÜ İŞLEME MODÜLÜ **
 
-sudo apt-get update
-sudo apt install python3-dev python3-pip
-sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libfontconfig1-dev libcairo2-dev libgdk-pixbuf2.0-dev libpango1.0-dev libgtk2.0-dev libgtk-3-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev libhdf5-103 python3-pyqt5 python3-dev -y
-sudo apt-get install python3-opencv
-sudo apt install python3-numpy
+#** GÖRÜNTÜ İŞLEME MODÜLÜ **
 
-"""
 import cv2
 import numpy as np
 
@@ -54,13 +47,12 @@ def find_red_object_position(image_path):
 
 """
 #*******************************TEST************************************
-# Resim dosyasının yolu
 image_path = "src\piphototest\poz3.png"
 
-# Kırmızı nesnenin konumunu bul
+# Kirmizi nesnenin konumunu bul
 red_object_position = find_red_object_position(image_path)
 
-# Konumu ekrana yazdır
+# Konumu ekrana yazdir
 print("Kirmizi nesnenin konumu:", red_object_position)
 #*******************************TEST************************************
 """

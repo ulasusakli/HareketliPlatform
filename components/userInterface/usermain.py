@@ -6,7 +6,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import cv2
 from colorDetectionv1 import find_red_object_position
-from captureModulev1 import capture_and_process_image
+from captureModulev2 import capture_and_process_image
 from moveRobotModule import moveRobot
 
 class RobotControlUI:
