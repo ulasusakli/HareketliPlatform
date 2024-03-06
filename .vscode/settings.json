@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./components/camera",
-        "./components/control"
+        "./components/control",
+        "./tutorial/control"
     ]
 }

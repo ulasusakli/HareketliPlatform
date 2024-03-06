@@ -59,6 +59,14 @@ class RobotController:
             self.motor2.rotate(GPIO.HIGH, int(angle / 360 * self.motor2.steps_per_rev))
         elif motor_number == 3:
             self.motor3.rotate(GPIO.HIGH, int(angle / 360 * self.motor3.steps_per_rev))
+    
+    def move_motor_ccw(self, motor_number, angle):
+        if motor_number == 1:
+            self.motor1.rotate(GPIO.LOW, int(angle / 360 * self.motor1.steps_per_rev))
+        elif motor_number == 2:
+            self.motor2.rotate(GPIO.LOW, int(angle / 360 * self.motor2.steps_per_rev))
+        elif motor_number == 3:
+            self.motor3.rotate(GPIO.LOW, int(angle / 360 * self.motor3.steps_per_rev))
 
     def cleanup(self):
         self.motor1.cleanup()
@@ -67,6 +75,7 @@ class RobotController:
 
 # Örnek Kullanım:
 # robot = RobotController()
-# robot.move_motor(1, 90)  # Motor 1'i 90 derece döndür
-# robot.move_motor(2, 180)  # Motor 2'yi 180 derece döndür
+# robot.move_motor(1, 90)  # Motor 1'i saat yönünde 90 derece döndür
+# robot.move_motor(2, 180)  # Motor 2'yi saat yönünde 180 derece döndür
+# robot.move_motor_ccw(1, 60)  # Motor 1'i saat yönünün tersine 60 derece döndür
 # robot.cleanup()
