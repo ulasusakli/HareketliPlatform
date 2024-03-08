@@ -1,7 +1,7 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-class RobotControllerDeneme:
+class MotorController:
     def __init__(self):
         # ----Motor Pinleri----
         self.motor_pins = {
