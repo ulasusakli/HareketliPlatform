@@ -5,7 +5,7 @@ from motorModule import RobotController
 
 def moveRobot(position):
     robot = RobotController()
-    relay_pin = 17
+    relay_pin =16
     GPIO.setup(relay_pin, GPIO.OUT) # Mıknatıs pinini çıkış olarak ayarladık
     GPIO.output(relay_pin, GPIO.HIGH) # Mıknatısı başlangıçta aktif hale getirdik
 

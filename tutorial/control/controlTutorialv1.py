@@ -5,9 +5,9 @@ class RobotControllerDeneme:
     def __init__(self):
         # ----Motor Pinleri----
         self.motor_pins = {
-            1: {'DIR': 21, 'STEP': 20},
-            2: {'DIR': 23, 'STEP': 24},
-            3: {'DIR': 16, 'STEP': 12}
+            1: {'DIR':21, 'STEP':20},
+            2: {'DIR':6, 'STEP':5},
+            3: {'DIR':24, 'STEP':23}
         }
         # ---------------------
 
@@ -27,14 +27,14 @@ class RobotControllerDeneme:
         GPIO.output(21, self.CW)  #Başlangıçta Saat Yönünde (direction pini)
 
         #Motor 2
-        GPIO.setup(23, GPIO.OUT)  #Direction Pini
-        GPIO.setup(24, GPIO.OUT)  #Step Pini
-        GPIO.output(23, self.CW)  #Başlangıçta Saat Yönünde (direction pini)
+        GPIO.setup(6, GPIO.OUT)  #Direction Pini
+        GPIO.setup(5, GPIO.OUT)  #Step Pini
+        GPIO.output(6, self.CW)  #Başlangıçta Saat Yönünde (direction pini)
 
         #Motor 3
-        GPIO.setup(16, GPIO.OUT)  #Direction Pini
-        GPIO.setup(12, GPIO.OUT)  #Step Pini
-        GPIO.output(16, self.CW)  #Başlangıçta Saat Yönünde (direction pini)
+        GPIO.setup(24, GPIO.OUT)  #Direction Pini
+        GPIO.setup(23, GPIO.OUT)  #Step Pini
+        GPIO.output(24, self.CW)  #Başlangıçta Saat Yönünde (direction pini)
         # -------------------------
 
     # Motoru saat yönünde döndürme fonksiyonu
@@ -71,7 +71,13 @@ class RobotControllerDeneme:
         GPIO.output(pins['DIR'], self.CW)  # Saat yönüne geri döndür
 
 # Kullanım örneği
-robot = RobotControllerDeneme()
-robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
-robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
+#robot = RobotControllerDeneme()
+#robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
+#robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
 
+"""
+ÖNEMLİ NOT !
+Current Limit = VRef x 2.5
+Current Limit = 0.6
+Vref = 0.24V 
+"""

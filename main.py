@@ -4,7 +4,7 @@ import time
 
 ###### Kamera Modülü
 from colorDetectionv1 import find_red_object_position
-from captureModulev2 import capture_and_process_image
+from captureModule import capture_and_process_image
 
 ###### Platform Kontrol Modülü
 from moveRobotModule import moveRobot

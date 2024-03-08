@@ -57,12 +57,4 @@ print("Kirmizi nesnenin konumu:", red_object_position)
 #*******************************TEST************************************
 """
 
-# Elde ettiğiniz konumu başka Python kodlarında kullanabilirsiniz.
-# Örneğin:
-# if red_object_position == "Sol":
-#     # Sol konumda bir şey yap
-# elif red_object_position == "Orta":
-#     # Orta konumda bir şey yap
-# elif red_object_position == "Sağ":
-#     # Sağ konumda bir şey yap
 

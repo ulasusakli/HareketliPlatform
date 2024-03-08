@@ -1,12 +1,15 @@
 #sudo apt-get update
 #sudo apt-get install python3-tk
 
+#### Imports
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import cv2
+
+#### Modules
 from colorDetectionv1 import find_red_object_position
-from captureModulev2 import capture_and_process_image
+from captureModule import capture_and_process_image
 from moveRobotModule import moveRobot
 
 class RobotControlUI:
