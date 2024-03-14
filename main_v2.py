@@ -1,3 +1,6 @@
+#sudo apt-get update
+#sudo apt-get install python3-tk
+
 #### Imports
 import tkinter as tk
 from tkinter import ttk
@@ -12,9 +15,9 @@ from moveRobotModule import moveRobot
 class RobotControlUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Platform Kontrol Sistemi")
+        self.root.title("Robot Kontrol Sistemi")
 
-        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.start_platform)
+        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.printHello)
         self.start_button.pack(pady=10)
 
         # Video gösterimi için bir frame
