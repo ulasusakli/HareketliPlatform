@@ -3,7 +3,7 @@ from picamera2 import Picamera2, Preview
 import time
 
 # Görüntü işleme modülünü import et
-from platformColorDetection import find_object_position
+from imageProcess_v1 import find_object_position
 
 def capture_and_process_image():
     # Kamera örneğini oluştur
@@ -12,13 +12,13 @@ def capture_and_process_image():
         time.sleep(1)
 
         # Fotoğraf Konumları
-        image_path_real = "/home/m2labteam/Desktop/platform/3DOFPlatform/src/piphoto/captured_image.jpg"
+        image_path_test = "/home/m2labteam/Desktop/platform/3DOFPlatform/src/piphototest/captured_test.jpg"
 
         # Fotoğrafı Çek ve Hedeflenen Konuma Kaydet
-        camera.start_and_capture_file(image_path_real)
+        camera.start_and_capture_file(image_path_test)
 
         # Hedeflenen Renkteki nesnenin konumunu tespit et
-        object_position = find_object_position(image_path_real)
+        object_position = find_object_position(image_path_test)
 
         # Elde edilen konumu ekrana yazdır
         print("Hedeflenen Nesnenin Konumu:", object_position)
@@ -26,6 +26,7 @@ def capture_and_process_image():
         return object_position
 
 # Fonksiyonu çağır
-
+position_result = capture_and_process_image()
+print(position_result)
 
 
