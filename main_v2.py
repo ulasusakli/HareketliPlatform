@@ -17,7 +17,7 @@ class RobotControlUI:
         self.root = root
         self.root.title("Robot Kontrol Sistemi")
 
-        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.printHello)
+        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.start_platform)
         self.start_button.pack(pady=10)
 
         # Video gösterimi için bir frame
