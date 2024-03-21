@@ -1,13 +1,21 @@
 import RPi.GPIO as GPIO
 import time
 
+# Set the GPIO mode (BCM or BOARD)
+GPIO.setmode(GPIO.BCM)
+
+# Import the platform module
 from platform_motorModule import RobotController
 
 def moveRobot(position):
+    # Define the Platform as a robot
     robot = RobotController()
+
+    # Define the GPIO pin controlled the relay
     relay_pin =13
-    GPIO.setup(relay_pin, GPIO.OUT) # Mıknatıs pinini çıkış olarak ayarladık
-    GPIO.output(relay_pin, GPIO.HIGH) # Mıknatısı başlangıçta aktif hale getirdik
+    GPIO.setmode(GPIO.BCM) # Set the GPIO mode (BCM or BOARD)
+    GPIO.setup(relay_pin, GPIO.OUT) # Röle pinini çıkış olarak ayarladık
+    GPIO.output(relay_pin, GPIO.HIGH) # Röleyi başlangıçta aktif hale getirdik
 
     # Motorların başlangıç açıları 0,0,0 olarak ayarlanmıştır.
     # Motoru Saat yönünde sürmek için robot.move_motor_cw(i,a) komutunu kullanın
@@ -21,7 +29,6 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
         # Mıknatıs pinini aktif et
-        GPIO.setup(relay_pin, GPIO.OUT)
         GPIO.output(relay_pin, GPIO.HIGH)
         time.sleep(3)  # Mıknatıs 3 saniye boyunca aktif kalsın
 
@@ -50,7 +57,6 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
         # Mıknatıs pinini aktif et
-        GPIO.setup(relay_pin, GPIO.OUT)
         GPIO.output(relay_pin, GPIO.HIGH)
         time.sleep(3)  # Mıknatıs 3 saniye boyunca aktif kalsın
 
@@ -79,7 +85,6 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
         # Mıknatıs pinini aktif et
-        GPIO.setup(relay_pin, GPIO.OUT)
         GPIO.output(relay_pin, GPIO.HIGH)
         time.sleep(3)  # Mıknatıs 3 saniye boyunca aktif kalsın
 
