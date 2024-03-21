@@ -3,7 +3,6 @@ import RPi.GPIO as GPIO
 import time
 
 ###### Kamera Modülü
-from colorDetectionv1 import find_red_object_position
 from captureModule import capture_and_process_image
 
 ###### Platform Kontrol Modülü
