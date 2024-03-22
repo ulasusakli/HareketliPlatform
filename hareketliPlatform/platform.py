@@ -13,7 +13,7 @@ class RobotControlUI:
         self.root = root
         self.root.title("Platform Kontrol Sistemi")
 
-        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.start_platform)
+        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.platform_initial)
         self.start_button.pack(pady=10)
 
         # Video gösterimi için bir frame
@@ -24,46 +24,26 @@ class RobotControlUI:
         self.canvas = tk.Canvas(self.video_frame)
         self.canvas.pack()
 
-    def start_platform(self):
-        # Kamerayı başlat
-        cap = cv2.VideoCapture(0)
+    def platform_initial(self):
 
-        while True:
-            ret, frame = cap.read()
-            
-            # USB kameradan görüntüyü al
-            if ret:
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                img = Image.fromarray(frame)
-                img = ImageTk.PhotoImage(img)
+        # Kırmızı nesne pozisyonunu al
+        position_result = capture_and_process_image()
                 
-                # Canvas'a yeni görüntüyü yerleştir
-                self.canvas.config(width=img.width(), height=img.height())
-                self.canvas.create_image(0, 0, anchor=tk.NW, image=img)
-                
-                # GUI'yi güncelle
-                self.root.update()
+        # Nesnenin pozisyonuna göre robotu kontrol et
+        if position_result == 'Left':
+            print("Nesne Birinci Pozisyonda")
+            moveRobot(1)
+        elif position_result == 'Mid':
+            print("Nesne İkinci Pozisyonda")
+            moveRobot(2)
+        elif position_result == 'Right':
+            print("Nesne Üçüncü Pozisyonda")
+            moveRobot(3)
+        else:
+            print("Nesne Bulunamadi.")
 
-                # Kırmızı nesne pozisyonunu al
-                position_result = capture_and_process_image()
-                
-                # Nesnenin pozisyonuna göre robotu kontrol et
-                if position_result == 'Left':
-                    print("Nesne Birinci Pozisyonda")
-                    moveRobot("Left")
-                elif position_result == 'Mid':
-                    print("Nesne İkinci Pozisyonda")
-                    moveRobot("Mid")
-                elif position_result == 'Right':
-                    print("Nesne Üçüncü Pozisyonda")
-                    moveRobot("Right")
-                else:
-                    print("Nesne Bulunamadi.")
-
-            # 10 milisaniye beklet
-            self.root.after(10)
-
-        cap.release()
+        # 10 milisaniye beklet
+        self.root.after(10)
 
 if __name__ == "__main__":
     root = tk.Tk()

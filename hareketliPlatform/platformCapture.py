@@ -12,10 +12,10 @@ def capture_and_process_image():
         time.sleep(1)
 
         # Fotoğraf Konumları
-        image_path_real = "/home/m2labteam/Desktop/platform/3DOFPlatform/src/piphoto/captured_image.jpg"
+        image_path_real = "/home/m2labteam/Desktop/platform/HareketliPlatform/src/piphoto/captured_image.jpg"
 
         # Create a dummy photo
-        image_path_test = "/home/m2labteam/Desktop/platform/3DOFPlatform/src/piphototest/poz1.png"
+        image_path_test = "/home/m2labteam/Desktop/platform/HareketliPlatform/src/piphototest/poz1.png"
         
         # Fotoğrafı Çek ve Hedeflenen Konuma Kaydet
         camera.start_and_capture_file(image_path_real)

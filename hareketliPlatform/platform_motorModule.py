@@ -15,7 +15,7 @@ class RobotController:
         self.CW = 1 # Saat Yönü
         self.CCW = 0 # Saat yönünün tersi
         self.SPR = 200 # 1 tur için atılan adım
-        self.delay = 0.00085  # Motorun Hızı 
+        self.delay = 0.00015  # Motorun Hızı 
 
         GPIO.setmode(GPIO.BCM)
         # --------------------------
