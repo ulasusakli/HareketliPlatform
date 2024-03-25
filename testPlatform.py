@@ -8,9 +8,6 @@ from captureModule import capture_and_process_image
 ###### Platform Kontrol Modülü
 from moveRobotModule import moveRobot
 
-### Configuration
-GPIO.setmode(GPIO.BCM)
-
 # Hedeflenen renkteki nesnenin konumunu al
 position_result = capture_and_process_image()
 

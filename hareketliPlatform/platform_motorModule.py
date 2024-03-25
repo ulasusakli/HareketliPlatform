@@ -9,18 +9,27 @@ class RobotController:
             2: {'DIR':6, 'STEP':5},
             3: {'DIR':24, 'STEP':23}
         }
-        # ---------------------
+        # --------Diğer Pinler----------
+        self.relayPin = 16 # Relay Pini
 
-        # -----Tanım ve Ayarlar-----
+        # ------------------------------
+
+        # -----Tanımlar-----
         self.CW = 1 # Saat Yönü
         self.CCW = 0 # Saat yönünün tersi
         self.SPR = 200 # 1 tur için atılan adım
-        self.delay = 0.00015  # Motorun Hızı 
+        self.delay = 0.0015  # Motorun Hızı 
 
+        # --------Ayarlar---------------
         GPIO.setmode(GPIO.BCM)
-        # --------------------------
+
+        # ------------------------------
 
         # ----Pin Konfigürasyonu----
+        #Relay Pin
+        GPIO.setup(self.relayPin, GPIO.OUT) # Röle Tetik Pini
+        GPIO.output(self.relayPin, GPIO.LOW) # Başlangıçta Kapalı 
+
         #Motor 1
         GPIO.setup(21, GPIO.OUT)  #Direction Pini
         GPIO.setup(20, GPIO.OUT)  #Step Pini
@@ -70,7 +79,33 @@ class RobotController:
 
         GPIO.output(pins['DIR'], self.CW)  # Saat yönüne geri döndür
 
-# Kullanım örneği
-#robot = RobotController()
-#robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
-#robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
+    # Röle pinini aktifleştiren fonksiyon
+    def relay_on(self):
+        sleep(1)
+        GPIO.output(self.relayPin, GPIO.HIGH)
+        sleep(1)
+
+    # Röle pinini pasif hale getiren fonksiyon
+    def relay_off(self):
+        sleep(1)
+        GPIO.output(self.relayPin, GPIO.LOW)
+        sleep(1)
+
+"""
+--------------------*****ÖRNEK KULLANIM*******-------------------------
+
+robot = RobotController()
+robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
+robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
+robot.relay_on() #Tetik Pinini Aktif et.
+robot.relay_off() #Tetik Pinini Pasif Yap.
+
+--------------------*****ÖNEMLİ NOT*********-------------------------
+
+Current Limit = VRef x 2.5
+Current Limit = 0.6
+Vref = 0.24V 
+
+--------------------********SON**********-------------------------
+
+"""

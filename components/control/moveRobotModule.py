@@ -5,7 +5,7 @@ from motorModule import RobotController
 
 def moveRobot(position):
     robot = RobotController()
-    relay_pin =16
+    relay_pin = 16
     GPIO.setup(relay_pin, GPIO.OUT) # Mıknatıs pinini çıkış olarak ayarladık
     GPIO.output(relay_pin, GPIO.HIGH) # Mıknatısı başlangıçta aktif hale getirdik
 
@@ -13,7 +13,7 @@ def moveRobot(position):
     # Motoru Saat yönünde sürmek için robot.move_motor_cw(i,a) komutunu kullanın
     # Motoru Saat yönünün tersinde sürmek için robot.move_motor_ccw(i,a) komutunu kullanın
 
-    if position =="Left":
+    if position ==1:
         # Uç efektörü [1. Bölgeye] hareket ettir.
         robot.move_motor_cw(1, 60)
         robot.move_motor_cw(2, 60)
@@ -42,7 +42,7 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
 
-    if position =="Mid":
+    if position ==2:
         # Uç efektörü [2. Bölgeye] hareket ettir.
         robot.move_motor_cw(1, 60)
         robot.move_motor_cw(2, 60)
@@ -71,7 +71,7 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
 
-    if position =="Right":
+    if position ==3:
         # Uç efektörü [3. Bölgeye] hareket ettir.
         robot.move_motor_cw(1, 60)
         robot.move_motor_cw(2, 60)

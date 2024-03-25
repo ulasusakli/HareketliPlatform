@@ -52,15 +52,15 @@ class RobotControlUI:
                 position_result = capture_and_process_image()
                 
                 # Nesnenin pozisyonuna göre robotu kontrol et
-                if position_result == "Left":
+                if position_result == 'Left':
                     print("Nesne Birinci Pozisyonda")
-                    moveRobot("Left")
-                elif position_result == "Mid":
+                    moveRobot(1)
+                elif position_result == 'Mid':
                     print("Nesne İkinci Pozisyonda")
-                    moveRobot("Mid")
-                elif position_result == "Right":
+                    moveRobot(2)
+                elif position_result == 'Right':
                     print("Nesne Üçüncü Pozisyonda")
-                    moveRobot("Right")
+                    moveRobot(3)
                 else:
                     print("Nesne Bulunamadi.")
 

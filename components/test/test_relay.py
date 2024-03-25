@@ -5,19 +5,20 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 # Define the GPIO pin controlled the electromagnetic lock via the relay module
-RELAY_PIN = 21
+RELAY_PIN = 16
 
 # Set the relay pin as an output pin
 GPIO.setup(RELAY_PIN, GPIO.OUT)
+GPIO.output(RELAY_PIN, GPIO.LOW) # Turn the relay OFF (LOW) Initially
 
 try:
     # Run the loop function indefinitely
     while True:
-        # Turn the relay ON (HIGH) to lock the door
+        # Turn the relay ON (HIGH) 
         GPIO.output(RELAY_PIN, GPIO.HIGH)
         time.sleep(5)  # Wait for 5 seconds
 
-        # Turn the relay OFF (LOW) to unlock the door
+        # Turn the relay OFF (LOW) 
         GPIO.output(RELAY_PIN, GPIO.LOW)
         time.sleep(5)  # Wait for 5 seconds
 

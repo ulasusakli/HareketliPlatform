@@ -50,7 +50,7 @@ def moveRobot(position):
         print("Robot Birinci Pozisyonda")
 
 
-    if position == 2:
+    elif position == 2:
         # Uç efektörü [2. Bölgeye] hareket ettir.
         robot.move_motor_cw(1, 60)
         robot.move_motor_cw(2, 60)
@@ -78,7 +78,7 @@ def moveRobot(position):
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
 
-    if position == 3:
+    elif position == 3:
         # Uç efektörü [3. Bölgeye] hareket ettir.
         robot.move_motor_cw(1, 60)
         robot.move_motor_cw(2, 60)

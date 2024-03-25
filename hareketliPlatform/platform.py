@@ -28,7 +28,7 @@ class RobotControlUI:
 
         # Kırmızı nesne pozisyonunu al
         position_result = capture_and_process_image()
-                
+
         # Nesnenin pozisyonuna göre robotu kontrol et
         if position_result == 'Left':
             print("Nesne Birinci Pozisyonda")
