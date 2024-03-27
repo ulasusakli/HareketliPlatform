@@ -10,10 +10,11 @@ SPR = 200
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR,GPIO.OUT)
 GPIO.setup(STEP,GPIO.OUT)
+
 GPIO.output(DIR, CW)
 
 step_count = SPR
-delay = 0.00085
+delay = 0.0015
 
 for x in range(step_count):
     GPIO.output(STEP, GPIO.HIGH)
@@ -21,7 +22,7 @@ for x in range(step_count):
     GPIO.output(STEP, GPIO.LOW)
     sleep(delay)
 
-sleep(0.5)
+sleep(1)
 GPIO.output(DIR, CCW)
 
 for x in range(step_count):

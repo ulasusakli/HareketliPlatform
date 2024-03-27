@@ -10,7 +10,7 @@ class RobotController:
             3: {'DIR':24, 'STEP':23}
         }
         # --------Diğer Pinler----------
-        self.relayPin = 16 # Relay Pini
+        self.relayPin = 13 # Relay Pini
 
         # ------------------------------
 
@@ -18,7 +18,7 @@ class RobotController:
         self.CW = 1 # Saat Yönü
         self.CCW = 0 # Saat yönünün tersi
         self.SPR = 200 # 1 tur için atılan adım
-        self.delay = 0.0015  # Motorun Hızı 
+        self.delay = 0.0085  # Motorun Hızı 
 
         # --------Ayarlar---------------
         GPIO.setmode(GPIO.BCM)

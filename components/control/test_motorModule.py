@@ -11,12 +11,16 @@ from motorModule import RobotController
 
 testRobot = RobotController()
 
+testRobot.move_motor_ccw(1, 37)
+time.sleep(1)
+testRobot.move_motor_cw(1, 43)
 
+"""
 testRobot.move_motor_cw(1, 360)
 testRobot.move_motor_cw(2, 360)
 testRobot.move_motor_cw(3, 360)
 
-time.sleep(3)
+time.sleep(1)
 testRobot.relay_on()
 time.sleep(3)
 
@@ -24,7 +28,7 @@ testRobot.move_motor_ccw(1, 360)
 testRobot.move_motor_ccw(2, 360)
 testRobot.move_motor_ccw(3, 360)
 
-time.sleep(3)
+time.sleep(1)
 testRobot.relay_off()
 time.sleep(3)
-       
+"""

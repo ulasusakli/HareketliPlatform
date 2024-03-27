@@ -5,7 +5,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 # Define the GPIO pin controlled the electromagnetic lock via the relay module
-RELAY_PIN = 16
+RELAY_PIN = 13
 
 # Set the relay pin as an output pin
 GPIO.setup(RELAY_PIN, GPIO.OUT)
@@ -16,11 +16,11 @@ try:
     while True:
         # Turn the relay ON (HIGH) 
         GPIO.output(RELAY_PIN, GPIO.HIGH)
-        time.sleep(5)  # Wait for 5 seconds
+        time.sleep(4)  # Wait for 5 seconds
 
         # Turn the relay OFF (LOW) 
         GPIO.output(RELAY_PIN, GPIO.LOW)
-        time.sleep(5)  # Wait for 5 seconds
+        time.sleep(4)  # Wait for 5 seconds
 
 except KeyboardInterrupt:
     # If the user presses Ctrl+C, clean up the GPIO configuration
