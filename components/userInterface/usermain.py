@@ -5,7 +5,6 @@ from PIL import Image, ImageTk
 import cv2
 
 #### Modules
-from colorDetectionv1 import find_red_object_position
 from captureModule import capture_and_process_image
 from moveRobotModule import moveRobot
 

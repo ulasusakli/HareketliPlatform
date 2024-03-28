@@ -10,7 +10,7 @@ class RobotController:
             3: {'DIR':24, 'STEP':23}
         }
         # --------Diğer Pinler----------
-        self.relayPin = 16 # Relay Pini
+        self.relayPin = 13 # Relay Pini
 
         # ------------------------------
 
@@ -18,7 +18,7 @@ class RobotController:
         self.CW = 1 # Saat Yönü
         self.CCW = 0 # Saat yönünün tersi
         self.SPR = 200 # 1 tur için atılan adım
-        self.delay = 0.0015  # Motorun Hızı 
+        self.delay = 0.0085  # Motorun Hızı 
 
         # --------Ayarlar---------------
         GPIO.setmode(GPIO.BCM)
@@ -80,32 +80,43 @@ class RobotController:
         GPIO.output(pins['DIR'], self.CW)  # Saat yönüne geri döndür
 
     # Röle pinini aktifleştiren fonksiyon
-    def relay_on(self):
+    def relay_on(self, dtime):
         sleep(1)
         GPIO.output(self.relayPin, GPIO.HIGH)
-        sleep(1)
+        sleep(dtime)
 
     # Röle pinini pasif hale getiren fonksiyon
-    def relay_off(self):
+    def relay_off(self, dtime):
         sleep(1)
         GPIO.output(self.relayPin, GPIO.LOW)
-        sleep(1)
+        sleep(dtime)
 
 """
---------------------*****ÖRNEK KULLANIM*******-------------------------
 
-robot = RobotController()
-robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
-robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
-robot.relay_on() #Tetik Pinini Aktif et.
-robot.relay_off() #Tetik Pinini Pasif Yap.
+Proje: 3 SERBESTLİK DERECELİ HAREKETLİ PLATFORM
+Proje Yürütücüsü: M2LAB
+Proje Üyeleri:
+-19067045 Ulaş Uşaklı
+-20067043 İpek Nisa Canalp
+-19067023 Sıla Çakmak
 
---------------------*****ÖNEMLİ NOT*********-------------------------
 
+************************Talimatlar**********************************************************
+    # Motorların başlangıç açıları 0,0,0 olarak ayarlanmıştır.
+    # Motoru Saat yönünde sürmek için robot.move_motor_cw(i,a) komutunu kullanın
+    # Motoru Saat yönünün tersinde sürmek için robot.move_motor_ccw(i,a) komutunu kullanın
+    # Elektromıknatısı aktif etmek için robot.relay_on() komutunu kullanın
+    # Elektromıknatısı pasif etmek için robot.relay_off() komutunu kullanın
+    # Gecikme süresi tanımlamak için time.sleep(t) komutunu kullanın.
+********************************************************************************************
+
+
+"""
+"""
+********************************************************************************************
 Current Limit = VRef x 2.5
 Current Limit = 0.6
 Vref = 0.24V 
 
---------------------********SON**********-------------------------
-
+********************************************************************************************
 """
