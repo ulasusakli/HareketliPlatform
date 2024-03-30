@@ -79,7 +79,7 @@ def detect_object(image_path, output_path):
 
     return region 
 
-"""
+
 # Example Cropped Image Function usage:
 input_image_path = "src\piphototest\poz1.png"  # Provide the path to your input image
 output_image_path = "src\piphototest\cropped_image.jpg"  # Provide the desired output path
@@ -97,5 +97,3 @@ final_image_path = "src\piphototest\Final_image.jpg"  # Path to the final image
 # Result
 region = detect_object(divided_image_path, final_image_path)
 print("Red Object is in:", region)
-
-"""

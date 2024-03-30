@@ -37,6 +37,7 @@ def capture_and_process_image():
         return region
 
 # Fonksiyonu çağır
+capture_and_process_image()
 
 
 

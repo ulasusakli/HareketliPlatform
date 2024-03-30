@@ -41,7 +41,7 @@ def divide_and_save(image_path, output_path):
     # Save the divided image
     cv2.imwrite(output_path, divided_img)
 
-def detect_object(image_path, output_path):
+def detect_red_object(image_path):
     # Read the image
     img = cv2.imread(image_path)
     
@@ -71,31 +71,28 @@ def detect_object(image_path, output_path):
         else:
             region = 3
 
+        # Print the region where the red object is detected
+        print("Red object is in", region, "region.")
+
         # Draw the bounding box and region text on the image
         cv2.rectangle(img, (x, y), (x + w, y + h), (255, 255, 255), 2)
     
     # Save the image with detected red object
-    cv2.imwrite(output_path, img)
+    cv2.imwrite("detected_red_object.jpg", img)
 
     return region 
 
-"""
-# Example Cropped Image Function usage:
-input_image_path = "src\piphototest\poz1.png"  # Provide the path to your input image
-output_image_path = "src\piphototest\cropped_image.jpg"  # Provide the desired output path
+# Example usage:
+input_image_path = "src\piphototest\poz2.png"  # Provide the path to your input image
+output_image_path = "cropped_image.jpg"  # Provide the desired output path
 crop_and_save(input_image_path, output_image_path)
 
-# Example Divided Image Function usage:
-cropped_image_path = "src\piphototest\cropped_image.jpg"  # Provide the path to your cropped image
-output_image_path = "src\piphototest\divided_image.jpg"    # Provide the desired output path
+# Example usage:
+cropped_image_path = "cropped_image.jpg"  # Provide the path to your cropped image
+output_image_path = "divided_image.jpg"    # Provide the desired output path
 divide_and_save(cropped_image_path, output_image_path)
 
-# Example Color Mask Function usage:
-divided_image_path = "src\piphototest\divided_image.jpg"  # Path to the divided image
-final_image_path = "src\piphototest\Final_image.jpg"  # Path to the final image
-
-# Result
-region = detect_object(divided_image_path, final_image_path)
+# Example usage:
+divided_image_path = "divided_image.jpg"  # Path to the divided image
+region = detect_red_object(divided_image_path)
 print("Red Object is in:", region)
-
-"""
