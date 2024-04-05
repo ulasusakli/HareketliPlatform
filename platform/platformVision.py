@@ -5,15 +5,18 @@ def crop_and_save(image_path, output_path):
     # Read the image
     img = cv2.imread(image_path)
 
+    # Rotate the image by 90 degrees
+    rotated_img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+
     # Get the dimensions of the image
-    height, width = img.shape[:2]
+    height, width = rotated_img.shape[:2]
 
     # Display the width and height of the input image
-    print("Input image width:", width)
-    print("Input image height:", height)
+    print("Cropped image width:", width)
+    print("Cropped image height:", height)
 
     # Crop the image by specified pixels from top, bottom, left, and right
-    cropped_img = img[10:height-10, 30:width-30]
+    cropped_img = rotated_img[550:height-850, 120:width-100]
 
     # Save the cropped image with a different name
     cv2.imwrite(output_path, cropped_img)
@@ -41,22 +44,24 @@ def divide_and_save(image_path, output_path):
     # Save the divided image
     cv2.imwrite(output_path, divided_img)
 
-def detect_red_object(image_path):
+def detect_object(image_path, output_path):
     # Read the image
     img = cv2.imread(image_path)
     
-    # Convert the image to HSV color space
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    # Convert the image from BGR to HSV color space
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-    # Define lower and upper bounds for the red color
-    lower_red = np.array([0, 100, 100])
-    upper_red = np.array([10, 255, 255])
+    # Define lower and upper bounds for the color in  color space
+    lower_red = np.array([175, 150, 90])  # Lower Color Code 
+    upper_red = np.array([180, 255, 255])  # Higher Color Code
 
     # Threshold the HSV image to get only red colors
-    mask = cv2.inRange(hsv, lower_red, upper_red)
+    mask = cv2.inRange(hsv_img, lower_red, upper_red)
 
     # Find contours in the mask
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    region = None  # Eğer hiç kontur bulunamazsa region'ı None olarak ayarla
 
     # Check if any contours are found
     if contours:
@@ -71,28 +76,10 @@ def detect_red_object(image_path):
         else:
             region = 3
 
-        # Print the region where the red object is detected
-        print("Red object is in", region, "region.")
-
         # Draw the bounding box and region text on the image
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 255, 255), 2)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 0), 2)
     
     # Save the image with detected red object
-    cv2.imwrite("detected_red_object.jpg", img)
+    cv2.imwrite(output_path, img)
 
     return region 
-
-# Example usage:
-input_image_path = "src\piphototest\poz2.png"  # Provide the path to your input image
-output_image_path = "cropped_image.jpg"  # Provide the desired output path
-crop_and_save(input_image_path, output_image_path)
-
-# Example usage:
-cropped_image_path = "cropped_image.jpg"  # Provide the path to your cropped image
-output_image_path = "divided_image.jpg"    # Provide the desired output path
-divide_and_save(cropped_image_path, output_image_path)
-
-# Example usage:
-divided_image_path = "divided_image.jpg"  # Path to the divided image
-region = detect_red_object(divided_image_path)
-print("Red Object is in:", region)

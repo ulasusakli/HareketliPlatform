@@ -80,32 +80,14 @@ class RobotController:
         GPIO.output(pins['DIR'], self.CW)  # Saat yönüne geri döndür
 
     # Röle pinini aktifleştiren fonksiyon
-    def relay_on(self):
-        sleep(1)
+    def relay_on(self, dtime):
+        sleep(0.5)
         GPIO.output(self.relayPin, GPIO.HIGH)
-        sleep(1)
+        sleep(dtime)
 
     # Röle pinini pasif hale getiren fonksiyon
-    def relay_off(self):
-        sleep(1)
+    def relay_off(self, dtime):
+        sleep(0.5)
         GPIO.output(self.relayPin, GPIO.LOW)
-        sleep(1)
+        sleep(dtime)
 
-"""
---------------------*****ÖRNEK KULLANIM*******-------------------------
-
-robot = RobotController()
-robot.move_motor_cw(1, 60)  # Motor 1'i 60 derece saat yönünde döndür
-robot.move_motor_ccw(2, 120)  # Motor 2'yi 120 derece saat yönünün tersine döndür
-robot.relay_on() #Tetik Pinini Aktif et.
-robot.relay_off() #Tetik Pinini Pasif Yap.
-
---------------------*****ÖNEMLİ NOT*********-------------------------
-
-Current Limit = VRef x 2.5
-Current Limit = 0.6
-Vref = 0.24V 
-
---------------------********SON**********-------------------------
-
-"""

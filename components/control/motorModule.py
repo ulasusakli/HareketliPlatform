@@ -91,32 +91,3 @@ class RobotController:
         GPIO.output(self.relayPin, GPIO.LOW)
         sleep(dtime)
 
-"""
-
-Proje: 3 SERBESTLİK DERECELİ HAREKETLİ PLATFORM
-Proje Yürütücüsü: M2LAB
-Proje Üyeleri:
--19067045 Ulaş Uşaklı
--20067043 İpek Nisa Canalp
--19067023 Sıla Çakmak
-
-
-************************Talimatlar**********************************************************
-    # Motorların başlangıç açıları 0,0,0 olarak ayarlanmıştır.
-    # Motoru Saat yönünde sürmek için robot.move_motor_cw(i,a) komutunu kullanın
-    # Motoru Saat yönünün tersinde sürmek için robot.move_motor_ccw(i,a) komutunu kullanın
-    # Elektromıknatısı aktif etmek için robot.relay_on() komutunu kullanın
-    # Elektromıknatısı pasif etmek için robot.relay_off() komutunu kullanın
-    # Gecikme süresi tanımlamak için time.sleep(t) komutunu kullanın.
-********************************************************************************************
-
-
-"""
-"""
-********************************************************************************************
-Current Limit = VRef x 2.5
-Current Limit = 0.6
-Vref = 0.24V 
-
-********************************************************************************************
-"""

@@ -13,7 +13,7 @@ class RobotControlUI:
         self.root = root
         self.root.title("Platform Kontrol Sistemi")
 
-        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.platform_initial)
+        self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.platform_start)
         self.start_button.pack(pady=10)
 
         # Video gösterimi için bir frame
@@ -24,13 +24,10 @@ class RobotControlUI:
         self.canvas = tk.Canvas(self.video_frame)
         self.canvas.pack()
 
-    def platform_initial(self):
+    def platform_start(self):
 
         # Kırmızı nesne pozisyonunu al
         position_result = capture_and_process_image()
-
-        #print("Nesne Pozisyonu", position_result)
-        #moveRobot(position_result)
 
         # Nesnenin pozisyonuna göre robotu kontrol et
         if position_result == 1:

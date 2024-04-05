@@ -6,17 +6,17 @@ def crop_and_save(image_path, output_path):
     img = cv2.imread(image_path)
 
     # Rotate the image by 90 degrees
-    rotated_img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+    #rotated_img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
 
     # Get the dimensions of the image
-    height, width = rotated_img.shape[:2]
+    height, width = img.shape[:2]
 
     # Display the width and height of the input image
     print("Cropped image width:", width)
     print("Cropped image height:", height)
 
     # Crop the image by specified pixels from top, bottom, left, and right
-    cropped_img = rotated_img[550:height-850, 120:width-100]
+    cropped_img = img[10:height-10, 10:width-10]
 
     # Save the cropped image with a different name
     cv2.imwrite(output_path, cropped_img)
@@ -51,12 +51,17 @@ def detect_object(image_path, output_path):
     # Convert the image from BGR to HSV color space
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-    # Define lower and upper bounds for the color in  color space
-    lower_red = np.array([175, 150, 90])  # Lower Color Code 
-    upper_red = np.array([180, 255, 255])  # Higher Color Code
+    # Define lower and upper bounds for the red color in HSV color space
+    lower_red = np.array([0, 100, 100])  # Daha ağırlaştırılmış kırmızı aralık
+    upper_red = np.array([10, 255, 255])  # Daha ağırlaştırılmış kırmızı aralık
 
     # Threshold the HSV image to get only red colors
     mask = cv2.inRange(hsv_img, lower_red, upper_red)
+
+    # Remove noise from the mask using morphological operations
+    kernel = np.ones((5,5),np.uint8)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
     # Find contours in the mask
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -77,15 +82,22 @@ def detect_object(image_path, output_path):
             region = 3
 
         # Draw the bounding box and region text on the image
-        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 0), 2)
-    
-    # Save the image with detected red object
-    cv2.imwrite(output_path, img)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 0), 2)  # Kenarı siyah yap
 
-    return region 
+        # Create a new mask where pixels in the defined color range are white and others are black
+        new_mask = cv2.bitwise_and(img, img, mask=mask)
+        new_mask[np.where((new_mask == [0, 0, 0]).all(axis=2))] = [255, 255, 255]  # Renk aralığındaki pikselleri beyaz yap
+        
+    else:
+        new_mask = np.zeros_like(img)  # Eğer hiç kontur bulunamazsa, tüm pikselleri siyah yap
+
+    # Save the image with detected red object
+    cv2.imwrite(output_path, new_mask)
+
+    return region
 
 # Provide the path to your input image
-input_image_path = "src\piphototest\capture_test.jpg"  
+input_image_path = "src\piphototest\poz1.png"  
 
 # Example Cropped Image Function usage:
 cropped_image_path = "src\piphototest\cropped_image.jpg"  # Provide the desired output path

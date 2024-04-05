@@ -49,14 +49,14 @@ def detect_object(image_path, output_path):
     img = cv2.imread(image_path)
     
     # Convert the image from BGR to HSV color space
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    #hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     # Define lower and upper bounds for the color in  color space
-    lower_red = np.array([175, 150, 90])  # Lower Color Code 
-    upper_red = np.array([180, 255, 255])  # Higher Color Code
+    lower_red = np.array([17, 10, 100])  # Lower Color Code 
+    upper_red = np.array([50, 60, 200])  # Higher Color Code
 
     # Threshold the HSV image to get only red colors
-    mask = cv2.inRange(hsv_img, lower_red, upper_red)
+    mask = cv2.inRange(img, lower_red, upper_red)
 
     # Find contours in the mask
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
