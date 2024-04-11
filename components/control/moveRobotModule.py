@@ -10,9 +10,9 @@ def moveRobot(position):
 
     if position ==1:
         # Uç efektörü [1. Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 30)
+        robot.move_motor_cw(1, 58)
         robot.move_motor_cw(2, 30)
-        robot.move_motor_cw(3, 30)
+        robot.move_motor_cw(3, 32)
         print("Platform 1. Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -22,9 +22,9 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Hedef Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 20)
-        robot.move_motor_cw(2, 20)
-        robot.move_motor_cw(3, 20)
+        robot.move_motor_ccw(1, 31)
+        robot.move_motor_cw(2, 6)
+        robot.move_motor_cw(3, 15)
         print("Platform Hedef Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -34,18 +34,18 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Başlangıç Pozisyonuna] getir.
-        robot.move_motor_ccw(1, 50)
-        robot.move_motor_ccw(2, 50)
-        robot.move_motor_ccw(3, 50)
+        robot.move_motor_cw(1, 31)
+        robot.move_motor_ccw(2, 6)
+        robot.move_motor_ccw(3, 15)
         print("Platform İlk Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
 
     elif position ==2:
         # Uç efektörü [2. Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 30)
-        robot.move_motor_cw(2, 30)
-        robot.move_motor_cw(3, 30)
+        robot.move_motor_cw(1, 50)
+        robot.move_motor_cw(2, 39)
+        robot.move_motor_cw(3, 25)
         print("Platform 2. Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -55,9 +55,9 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Hedef Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 20)
-        robot.move_motor_cw(2, 20)
-        robot.move_motor_cw(3, 20)
+        robot.move_motor_ccw(1, 23)
+        robot.move_motor_ccw(2, 3)
+        robot.move_motor_cw(3, 22)
         print("Platform Hedef Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -67,18 +67,18 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Başlangıç Pozisyonuna] getir.
-        robot.move_motor_ccw(1, 50)
-        robot.move_motor_ccw(2, 50)
-        robot.move_motor_ccw(3, 50)
+        robot.move_motor_cw(1, 23)
+        robot.move_motor_cw(2, 3)
+        robot.move_motor_ccw(3, 22)
         print("Platform İlk Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
 
     elif position ==3:
         # Uç efektörü [3. Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 30)
-        robot.move_motor_cw(2, 30)
-        robot.move_motor_cw(3, 30)
+        robot.move_motor_cw(1, 48)
+        robot.move_motor_cw(2, 52)
+        robot.move_motor_cw(3, 21)
         print("Platform 3. Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -88,9 +88,9 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Hedef Bölgeye] hareket ettir.
-        robot.move_motor_cw(1, 20)
-        robot.move_motor_cw(2, 20)
-        robot.move_motor_cw(3, 20)
+        robot.move_motor_ccw(1, 21)
+        robot.move_motor_ccw(2, 16)
+        robot.move_motor_cw(3, 26)
         print("Platform Hedef Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
 
@@ -100,9 +100,9 @@ def moveRobot(position):
         time.sleep(0.5)
 
         # Uç efektörü [Başlangıç Pozisyonuna] getir.
-        robot.move_motor_ccw(1, 50)
-        robot.move_motor_ccw(2, 50)
-        robot.move_motor_ccw(3, 50)
+        robot.move_motor_cw(1, 21)
+        robot.move_motor_cw(2, 16)
+        robot.move_motor_ccw(3, 26)
         print("Platform İlk Konumda")
         time.sleep(1)  # Hareketlerin tamamlanması için bir süre bekle
     
@@ -110,3 +110,4 @@ def moveRobot(position):
         print("Robot Hareketi Gerçekleştirilemedi...")
 
 
+moveRobot(1)
