@@ -1,8 +1,6 @@
 #### Imports
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
-import cv2
 
 #### Modules
 from platformCapture import capture_and_process_image
@@ -15,14 +13,6 @@ class RobotControlUI:
 
         self.start_button = ttk.Button(root, text="Platformu Başlat", command=self.platform_start)
         self.start_button.pack(pady=10)
-
-        # Video gösterimi için bir frame
-        self.video_frame = tk.Frame(root)
-        self.video_frame.pack(padx=10, pady=10)
-
-        # Video görüntüsünü göstermek için bir canvas
-        self.canvas = tk.Canvas(self.video_frame)
-        self.canvas.pack()
 
     def platform_start(self):
 
