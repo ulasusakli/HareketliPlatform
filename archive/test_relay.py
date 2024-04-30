@@ -16,11 +16,11 @@ try:
     while True:
         # Turn the relay ON (HIGH) 
         GPIO.output(RELAY_PIN, GPIO.HIGH)
-        time.sleep(4)  # Wait for 5 seconds
+        time.sleep(4)  # Wait for seconds
 
         # Turn the relay OFF (LOW) 
         GPIO.output(RELAY_PIN, GPIO.LOW)
-        time.sleep(4)  # Wait for 5 seconds
+        time.sleep(4)  # Wait for seconds
 
 except KeyboardInterrupt:
     # If the user presses Ctrl+C, clean up the GPIO configuration

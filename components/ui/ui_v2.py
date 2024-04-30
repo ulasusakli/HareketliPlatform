@@ -2,10 +2,6 @@ import tkinter as tk
 import cv2
 from PIL import Image, ImageTk
 
-#### Modules
-from platformCapture import capture_and_process_image
-from platformMove import moveRobot
-
 class PlatformControlUI:
     def __init__(self, root):
         self.root = root
@@ -61,45 +57,23 @@ class PlatformControlUI:
 
     # Buton fonksiyonları
     def funcStart(self):
-        print("Platform İlk Pozisyona Getiriliyor...")
-        moveRobot(4)
-
-        # Kırmızı nesne pozisyonunu al
-        position_result = capture_and_process_image()
-
-        # Nesnenin pozisyonuna göre robotu kontrol et
-        if position_result == 1:
-            print("Nesne 1. Pozisyonda")
-            moveRobot(1)
-        elif position_result == 2:
-            print("Nesne 2. Pozisyonda")
-            moveRobot(2)
-        elif position_result == 3:
-            print("Nesne 3. Pozisyonda")
-            moveRobot(3)
-        else:
-            print("Nesne Bulunamadi.")
-
-        # 10 milisaniye beklet
-        self.root.after(10)
+        # İşlev 1
+        pass
 
     def funcPos(self, posNo):
-        # İşlev 2
+
         if posNo == 1: #Pos1
             print("Pos 1'e Getiriliyor")
-            moveRobot(1)
 
         elif posNo == 2: #Pos2
             print("Pos 2'ye Getiriliyor")
-            moveRobot(2)
 
         elif posNo == 3: #Pos3
             print("Pos 3'e Getiriliyor")
-            moveRobot(3)
-
+        
         elif posNo == 4: #Reset
-            print("Platform Sifirlaniyor...")
-            moveRobot(4)
+            print("Platform Sifirlaniyor")
+
 
         else:
             print("Komut Giriniz.")

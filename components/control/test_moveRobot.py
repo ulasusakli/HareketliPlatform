@@ -1,6 +1,6 @@
 ## IMPORTS
 import time
-from motorModule_v2.motorModule_v2 import RobotController
+from motorModule import RobotController
 
 
 # Create an instance of the RobotController
@@ -8,9 +8,9 @@ controller = RobotController()
 
 # Define commands for each motor
 commands_cw = {
-    1: ('cw', 90),   # Motor 1, rotate clockwise 45 degrees
-    2: ('cw', 90),  # Motor 2, rotate counterclockwise 90 degrees
-    3: ('cw', 90)   # Motor 3, rotate clockwise 180 degrees
+    1: ('cw', 45),   # Motor 1, rotate clockwise 45 degrees
+    2: ('cw', 45),  # Motor 2, rotate counterclockwise 90 degrees
+    3: ('cw', 45)   # Motor 3, rotate clockwise 180 degrees
 }
 
 # Execute the motor commands
@@ -24,9 +24,9 @@ time.sleep(2)
 
 # Define commands for each motor
 commands_ccw = {
-    1: ('ccw', 90),   # Motor 1, rotate clockwise 45 degrees
-    2: ('ccw', 90),  # Motor 2, rotate counterclockwise 90 degrees
-    3: ('ccw', 90)   # Motor 3, rotate clockwise 180 degrees
+    1: ('ccw', 45),   # Motor 1, rotate clockwise 45 degrees
+    2: ('ccw', 45),  # Motor 2, rotate counterclockwise 90 degrees
+    3: ('ccw', 45)   # Motor 3, rotate clockwise 180 degrees
 }
 
 # Execute the motor commands
