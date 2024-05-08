@@ -2,10 +2,10 @@
 #include <math.h>
 
 // robot geometry
-const float e = 41;     // end effector
+const float e = 27;     // end effector
 const float f = 105;     // base
 const float re = 210;
-const float rf = 100;
+const float rf = 70;
 
 // trigonometric constants
 const float sqrt3 = sqrt(3.0);

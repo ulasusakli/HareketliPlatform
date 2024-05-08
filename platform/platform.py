@@ -62,6 +62,7 @@ class PlatformControlUI:
     # Buton fonksiyonları
     def funcStart(self):
         print("Platform İlk Pozisyona Getiriliyor...")
+        moveRobot(5)
         moveRobot(4)
 
         # Kırmızı nesne pozisyonunu al
@@ -86,15 +87,15 @@ class PlatformControlUI:
     def funcPos(self, posNo):
         # İşlev 2
         if posNo == 1: #Pos1
-            print("Pos 1'e Getiriliyor")
+            print("Hareket 1. Konuma göre gerçekleştiriliyor. ")
             moveRobot(1)
 
         elif posNo == 2: #Pos2
-            print("Pos 2'ye Getiriliyor")
+            print("Hareket 2. Konuma göre gerçekleştiriliyor. ")
             moveRobot(2)
 
         elif posNo == 3: #Pos3
-            print("Pos 3'e Getiriliyor")
+            print("Hareket 3. Konuma göre gerçekleştiriliyor. ")
             moveRobot(3)
 
         elif posNo == 4: #Reset
