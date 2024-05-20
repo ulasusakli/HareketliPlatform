@@ -5,22 +5,22 @@ import math
 
 class RobotController:
     def __init__(self):
-        # Motor Pins
+        # Motor Pin Konfigürasyonu
         self.motor_pins = {
             1: {'DIR':21, 'STEP':20, 'current_step': 0},
             2: {'DIR':6, 'STEP':5, 'current_step': 0},
             3: {'DIR':24, 'STEP':23, 'current_step': 0}
         }
-        # Other Pins
+        # Röle Pin Konfigürasyonu
         self.relayPin = 13  # Relay Pin
 
-        # Constants
+        # Tanımlar
         self.CW = 1  # Clockwise
         self.CCW = 0  # Counter-clockwise
         self.SPR = 200  # Steps per revolution
         #self.delay = 0.0085  # Ideal Motor Hızı Değerimiz
 
-        # Setup
+        # Ayarlamalar
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.relayPin, GPIO.OUT)
         GPIO.output(self.relayPin, GPIO.LOW)

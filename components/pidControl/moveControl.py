@@ -15,6 +15,7 @@ def move_to_position(position):
     pos2_position = {'motor1': 50, 'motor2': 40, 'motor3': 27}
     pos3_position = {'motor1': 61, 'motor2': 31, 'motor3': 36}
 
+    
     # Calculate the target position relative to Pos1, Pos2, or Pos3
     if position == 1:
         target_position_relative = {'motor1': 49, 'motor2': 56, 'motor3': 23}

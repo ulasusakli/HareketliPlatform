@@ -68,7 +68,7 @@ int delta_calcForward(float theta1, float theta2, float theta3, float *x0, float
     return 0;
 }
 // Inverse Kinematics : (x0, y0, z0) -> (theta1, theta2, theta3)
-// helper functions, calculates angle theta1 (for YZ-pane)
+// Theta1 açısını hesaplamaya yardımcı fonksiyon (for YZ-pane)
 int delta_calcAngleYZ(float x0, float y0, float z0, float *theta) {
     float y1 = -0.5 * 0.57735 * f; // f/2 * tg 30
     y0 -= 0.5 * 0.57735 * e;       // shift center to edge
@@ -86,8 +86,7 @@ int delta_calcAngleYZ(float x0, float y0, float z0, float *theta) {
     return 0;
 }
 
-// inverse kinematics
-// returned status: 0=OK, -1=non-existing position
+// Ters Kinematik
 int delta_calcInverse(float x0, float y0, float z0, float *theta1, float *theta2, float *theta3) {
     *theta1 = *theta2 = *theta3 = 0;
     int status = delta_calcAngleYZ(x0, y0, z0, theta1);
